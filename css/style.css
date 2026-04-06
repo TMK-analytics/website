@@ -255,7 +255,6 @@ section {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  max-width: 900px;
   width: 100%;
   margin: 0 auto;
   background-color: var(--bg-card);
@@ -338,10 +337,13 @@ section {
 
 @media (max-width: 768px) {
   .cards-col {
-    padding: var(--spacing-md);
+    padding: var(--spacing-sm);
+  }
+
+  .container {
+    padding: var(--spacing-md) var(--spacing-sm);
   }
 }
-
 /* ========================
    PAGE CURL
 ======================== */
