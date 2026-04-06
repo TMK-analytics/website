@@ -145,22 +145,28 @@ const flipCards = document.querySelectorAll('.flip-card');
 flipCards.forEach(card => {
   let touchStartX = 0;
   let touchStartY = 0;
+  let touchMoved = false;
 
-  // Desktop click
-  card.addEventListener('click', () => {
-    card.classList.toggle('flipped');
-  });
-
-  // Mobile touch with scroll guard
   card.addEventListener('touchstart', (e) => {
     touchStartX = e.touches[0].clientX;
     touchStartY = e.touches[0].clientY;
+    touchMoved = false;
+  }, { passive: true });
+
+  card.addEventListener('touchmove', () => {
+    touchMoved = true;
   }, { passive: true });
 
   card.addEventListener('touchend', (e) => {
-    const dx = Math.abs(e.changedTouches[0].clientX - touchStartX);
-    const dy = Math.abs(e.changedTouches[0].clientY - touchStartY);
-    if (dx < 50 && dy < 50) {
+    e.preventDefault();
+    if (!touchMoved) {
+      card.classList.toggle('flipped');
+    }
+  }, { passive: false });
+
+  // Desktop only
+  card.addEventListener('click', (e) => {
+    if (!('ontouchstart' in window)) {
       card.classList.toggle('flipped');
     }
   });
