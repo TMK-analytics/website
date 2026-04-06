@@ -255,7 +255,8 @@ section {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  max-width: 600px;
+  max-width: 900px;
+  width: 100%;
   margin: 0 auto;
   background-color: var(--bg-card);
   border: 1px solid var(--border);
@@ -333,6 +334,12 @@ section {
   font-family: monospace;
   font-size: 0.85rem;
   color: #888;
+}
+
+@media (max-width: 768px) {
+  .cards-col {
+    padding: var(--spacing-md);
+  }
 }
 
 /* ========================
