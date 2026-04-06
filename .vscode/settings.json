@@ -1,0 +1,10 @@
+{
+  "mcp": {
+    "servers": {
+      "netlify": {
+        "command": "npx",
+        "args": ["@netlify/mcp-server"]
+      }
+    }
+  }
+}
