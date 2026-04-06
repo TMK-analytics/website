@@ -375,12 +375,12 @@ section {
   animation: peekCurl 1s ease both;
 }
 
-.flip-card:not(.flipped):hover .peel-flap {
+.flip-card:hover .peel-flap {
   border-width: 0 0 90px 90px;
   filter: drop-shadow(-5px -5px 7px rgba(0,0,0,0.35));
 }
 
-.flip-card:not(.flipped):hover .peel::after {
+.flip-card:hover .peel::after {
   border-width: 0 0 90px 90px;
 }
 
