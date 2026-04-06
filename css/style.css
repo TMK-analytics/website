@@ -253,6 +253,9 @@ section {
   gap: 20px;
   max-width: 600px;
   margin: 0 auto;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: var(--spacing-lg);
 }
 
 .flip-card {
