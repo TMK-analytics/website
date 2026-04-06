@@ -436,3 +436,7 @@ section {
   max-width: 600px;
   margin: 0 auto var(--spacing-lg);
 }
+
+#cta {
+  padding-bottom: var(--spacing-lg);
+}
