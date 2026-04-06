@@ -136,3 +136,53 @@ if (helixCanvas) {
 
   drawHelix();
 }
+
+// ========================
+// FLIP CARDS
+// ========================
+const flipCards = document.querySelectorAll('.flip-card');
+
+flipCards.forEach(card => {
+  let touchStartX = 0;
+  let touchStartY = 0;
+
+  // Desktop click
+  card.addEventListener('click', () => {
+    card.classList.toggle('flipped');
+  });
+
+  // Mobile touch with scroll guard
+  card.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  card.addEventListener('touchend', (e) => {
+    const dx = Math.abs(e.changedTouches[0].clientX - touchStartX);
+    const dy = Math.abs(e.changedTouches[0].clientY - touchStartY);
+    if (dx < 10 && dy < 10) {
+      card.classList.toggle('flipped');
+    }
+  });
+});
+
+// ========================
+// MOBILE TAP HINT (shows once)
+// ========================
+function isTouchDevice() {
+  return ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+}
+
+if (isTouchDevice() && !localStorage.getItem('tapHintSeen')) {
+  const hint = document.createElement('div');
+  hint.className = 'tap-hint';
+  hint.textContent = 'Tap cards to explore';
+  document.body.appendChild(hint);
+
+  setTimeout(() => {
+    hint.classList.add('hidden');
+    setTimeout(() => hint.remove(), 500);
+  }, 3000);
+
+  localStorage.setItem('tapHintSeen', 'true');
+}
