@@ -256,6 +256,7 @@ section {
   background-color: var(--bg-card);
   border: 1px solid var(--border);
   padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
 }
 
 .flip-card {
