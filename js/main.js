@@ -160,7 +160,7 @@ flipCards.forEach(card => {
   card.addEventListener('touchend', (e) => {
     const dx = Math.abs(e.changedTouches[0].clientX - touchStartX);
     const dy = Math.abs(e.changedTouches[0].clientY - touchStartY);
-    if (dx < 10 && dy < 10) {
+    if (dx < 20 && dy < 20) {
       card.classList.toggle('flipped');
     }
   });
