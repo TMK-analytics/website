@@ -424,3 +424,15 @@ section {
 .tap-hint.hidden {
   opacity: 0;
 }
+
+/* ========================
+   CTA SECTION
+======================== */
+#cta .container {
+  text-align: center;
+}
+
+#cta p {
+  max-width: 600px;
+  margin: 0 auto var(--spacing-lg);
+}
