@@ -2,10 +2,9 @@
    CSS VARIABLES (THEME)
 ======================== */
 :root {
-  /* Colors */
-  --bg-primary: #2e2e2e;
---bg-secondary: #1a1a1a;
-  --bg-card: #2a2a2a;
+  --bg-primary: #232627;
+  --bg-secondary: #1a1a1a;
+  --bg-card: #2e3235;
 
   --text-primary: #ffffff;
   --text-secondary: #e5e5e5;
@@ -13,19 +12,16 @@
 
   --accent: #1a6fd4;
   --accent-hover: #1558a8;
-  --border: #333333;
+  --border: #444444;
 
-  /* Typography */
   --font-main: 'Segoe UI', sans-serif;
   --font-size-base: 16px;
 
-  /* Spacing */
   --spacing-sm: 8px;
   --spacing-md: 16px;
   --spacing-lg: 32px;
   --spacing-xl: 64px;
 
-  /* Layout */
   --max-width: 1200px;
   --border-radius: 8px;
 }
@@ -45,7 +41,7 @@ html {
 }
 
 body {
-  background-color: #232627;
+  background-color: var(--bg-primary);
   color: var(--text-primary);
   font-family: var(--font-main);
   line-height: 1.6;
