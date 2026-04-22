@@ -332,33 +332,6 @@ section {
   color: #888;
 }
 
-@media (max-width: 768px) {
-  .cards-col {
-    padding: var(--spacing-sm);
-  }
-
-  .container {
-    padding: var(--spacing-md) var(--spacing-sm);
-  }
-
-  .peel {
-    width: 40px;
-    height: 40px;
-  }
-
-  .peel::after {
-    border-width: 0 0 40px 40px;
-  }
-
-  .peel-flap {
-    border-width: 0 0 40px 40px;
-  }
-
-  .flip-card:hover .peel-flap,
-  .flip-card:hover .peel::after {
-    border-width: 0 0 60px 60px;
-  }
-}
 /* ========================
    PAGE CURL
 ======================== */
@@ -414,6 +387,34 @@ section {
 
 .flip-card:hover .peel::after {
   border-width: 0 0 90px 90px;
+}
+
+@media (max-width: 768px) {
+  .cards-col {
+    padding: var(--spacing-sm);
+  }
+
+  .container {
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+
+  .peel {
+    width: 40px;
+    height: 40px;
+  }
+
+  .peel::after {
+    border-width: 0 0 40px 40px;
+  }
+
+  .peel-flap {
+    border-width: 0 0 40px 40px;
+  }
+
+  .flip-card:hover .peel-flap,
+  .flip-card:hover .peel::after {
+    border-width: 0 0 60px 60px;
+  }
 }
 
 /* ========================
