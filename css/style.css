@@ -146,6 +146,12 @@ a:hover {
   padding: var(--spacing-lg);
 }
 
+.cards-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 /* ========================
    SECTIONS
 ======================== */
