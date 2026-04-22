@@ -206,6 +206,10 @@ section {
     width: 100%;
     text-align: center;
   }
+
+  .flip-card {
+  aspect-ratio: 1.8 / 1;
+}
 }
 
 /* ========================
