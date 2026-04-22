@@ -467,5 +467,20 @@ section {
 }
 
 #cta {
+  padding-top: var(--spacing-lg);
   padding-bottom: var(--spacing-lg);
+}
+
+/* ========================
+   WHY CHOOSE US SECTION
+======================== */
+#why-us {
+  padding-top: var(--spacing-lg);
+}
+
+/* ========================
+   WHAT WE DO SECTION
+======================== */
+#what-we-do {
+  padding-top: var(--spacing-lg);
 }
