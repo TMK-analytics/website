@@ -198,7 +198,16 @@ section {
 }
 
   .flip-card {
-  aspect-ratio: 1.8 / 1;
+  aspect-ratio: unset;
+  min-height: 180px;
+  height: auto;
+}
+
+.flip-front,
+.flip-back {
+  position: relative;
+  min-height: 180px;
+  height: auto;
 }
 }
 
