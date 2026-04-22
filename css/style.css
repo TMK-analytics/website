@@ -594,3 +594,133 @@ section {
     grid-template-columns: 1fr;
   }
 }
+
+/* ========================
+   ABOUT PAGE
+======================== */
+#meet-thao {
+  padding-top: var(--spacing-lg);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: var(--spacing-xl);
+  align-items: start;
+}
+
+.photo-placeholder {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-placeholder span {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.about-title {
+  color: var(--accent);
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.about-links {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.about-social {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+
+.about-social:hover {
+  color: var(--accent);
+}
+
+/* Credentials bar */
+.cred-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.cred-item {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  text-align: center;
+}
+
+.cred-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 0 0 4px;
+}
+
+.cred-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Story */
+.story-block {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Tools */
+.tools-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.tool-badge {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  padding: 8px 20px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.tool-badge:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-placeholder {
+    aspect-ratio: 1 / 1;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .cred-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
