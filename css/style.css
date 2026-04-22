@@ -196,6 +196,10 @@ section {
 .flip-card:hover .peel::after {
   border-width: 0 0 45px 45px !important;
 }
+
+  .flip-card {
+  aspect-ratio: 1.8 / 1;
+}
 }
 
 @media (max-width: 480px) {
@@ -207,9 +211,6 @@ section {
     text-align: center;
   }
 
-  .flip-card {
-  aspect-ratio: 1.8 / 1;
-}
 }
 
 /* ========================
