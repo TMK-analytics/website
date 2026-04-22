@@ -2,8 +2,8 @@
    FOOTER
 ======================== */
 footer {
-  background-color: #1a1a1a;
-  padding: var(--spacing-md) 0;
+  background-color: transparent;
+  padding: 0;
   text-align: center;
 }
 
