@@ -16,8 +16,14 @@
 </head>
 
 <script>
+  function isCalendlyEvent(e) {
+    return e.origin === 'https://calendly.com' && 
+           e.data.event && 
+           e.data.event.startsWith('calendly.');
+  }
+
   window.addEventListener('message', function(e) {
-    if (e.origin && e.origin.includes('calendly.com')) {
+    if (isCalendlyEvent(e) && e.data.event === 'calendly.event_type_viewed') {
       const placeholder = document.getElementById('calendlyPlaceholder');
       const widget = document.getElementById('calendlyWidget');
       if (placeholder && widget) {
@@ -117,7 +123,7 @@
       <div class="calendly-inline-widget"
         id="calendlyWidget"
         data-url="https://calendly.com/thao-tmkanalytics/30min"
-        style="min-width:320px; height:700px; opacity:0; transition: opacity 0.5s ease;">
+        style="min-width:320px; height:630px; opacity:0; transition: opacity 0.5s ease;">
       </div>
 
     </div>
