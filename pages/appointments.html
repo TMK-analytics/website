@@ -182,25 +182,47 @@
 
     const widget = document.getElementById('calendlyWidget');
 
-    function applyIframeScrollFix() {
-      const iframe = widget ? widget.querySelector('iframe') : null;
-      if (!iframe) {
-        setTimeout(applyIframeScrollFix, 300);
-        return;
-      }
+   function applyIframeScrollFix() {
+  const iframe = widget ? widget.querySelector('iframe') : null;
+  if (!iframe) {
+    setTimeout(applyIframeScrollFix, 300);
+    return;
+  }
 
+  iframe.style.pointerEvents = 'none';
+
+  // Track if user is scrolling the page
+  let pageScrolling = false;
+  let scrollTimer;
+
+  window.addEventListener('touchstart', (e) => {
+    if (!widget.contains(e.target)) {
+      // Touch is outside widget - keep iframe disabled
       iframe.style.pointerEvents = 'none';
-
-      widget.addEventListener('touchstart', () => {
-        iframe.style.pointerEvents = 'auto';
-      }, { passive: true });
-
-      document.addEventListener('touchstart', (e) => {
-        if (!widget.contains(e.target)) {
-          iframe.style.pointerEvents = 'none';
-        }
-      }, { passive: true });
     }
+  }, { passive: true });
+
+  window.addEventListener('touchmove', () => {
+    pageScrolling = true;
+    iframe.style.pointerEvents = 'none';
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => {
+      pageScrolling = false;
+    }, 100);
+  }, { passive: true });
+
+  widget.addEventListener('touchstart', (e) => {
+    if (!pageScrolling) {
+      iframe.style.pointerEvents = 'auto';
+    }
+  }, { passive: true });
+
+  document.addEventListener('touchstart', (e) => {
+    if (!widget.contains(e.target)) {
+      iframe.style.pointerEvents = 'none';
+    }
+  }, { passive: true });
+}
 
     applyIframeScrollFix();
   </script>
