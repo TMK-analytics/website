@@ -200,15 +200,31 @@
     return;
   }
 
-  // Overlay blocks all touches by default - page scrolls freely
   overlay.style.display = 'block';
 
-  // When user taps the overlay directly, hide it to let Calendly receive input
-  overlay.addEventListener('touchend', () => {
-    overlay.style.display = 'none';
+  let touchStartY = 0;
+  let touchStartX = 0;
+
+  overlay.addEventListener('touchstart', (e) => {
+    touchStartY = e.touches[0].clientY;
+    touchStartX = e.touches[0].clientX;
   }, { passive: true });
 
-  // When user touches anywhere outside widget, restore overlay
+  overlay.addEventListener('touchend', (e) => {
+    const dy = Math.abs(e.changedTouches[0].clientY - touchStartY);
+    const dx = Math.abs(e.changedTouches[0].clientX - touchStartX);
+    // Only hide overlay if it was a tap not a scroll
+    if (dy < 10 && dx < 10) {
+      overlay.style.display = 'none';
+    }
+  }, { passive: true });
+
+  // Restore overlay on any scroll movement
+  window.addEventListener('touchmove', () => {
+    overlay.style.display = 'block';
+  }, { passive: true });
+
+  // Restore overlay when touching outside widget
   document.addEventListener('touchstart', (e) => {
     if (!widget.contains(e.target)) {
       overlay.style.display = 'block';
