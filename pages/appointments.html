@@ -15,42 +15,6 @@
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
 </head>
 
-<script>
-  function isCalendlyEvent(e) {
-    return e.origin === 'https://calendly.com' && 
-           e.data.event && 
-           e.data.event.startsWith('calendly.');
-  }
-
-  window.addEventListener('message', function(e) {
-    if (isCalendlyEvent(e) && e.data.event === 'calendly.event_type_viewed') {
-      const placeholder = document.getElementById('calendlyPlaceholder');
-      const cal = document.getElementById('calendlyWidget');
-      if (placeholder && cal) {
-        placeholder.classList.add('hidden');
-        cal.style.opacity = '1';
-      }
-    }
-  });
-
-  const widget = document.getElementById('calendlyWidget');
-  const iframe = widget ? widget.querySelector('iframe') : null;
-
-  if (iframe) {
-    iframe.style.pointerEvents = 'none';
-
-    widget.addEventListener('touchstart', () => {
-      iframe.style.pointerEvents = 'auto';
-    }, { passive: true });
-
-    document.addEventListener('touchstart', (e) => {
-      if (!widget.contains(e.target)) {
-        iframe.style.pointerEvents = 'none';
-      }
-    }, { passive: true });
-  }
-</script>
-
 <body>
 
   <nav>
@@ -196,8 +160,50 @@
   </footer>
 
   <script src="../js/main.js"></script>
-  <!-- Calendly JS -->
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+  <script>
+    function isCalendlyEvent(e) {
+      return e.origin === 'https://calendly.com' &&
+             e.data.event &&
+             e.data.event.startsWith('calendly.');
+    }
+
+    window.addEventListener('message', function(e) {
+      if (isCalendlyEvent(e) && e.data.event === 'calendly.event_type_viewed') {
+        const placeholder = document.getElementById('calendlyPlaceholder');
+        const cal = document.getElementById('calendlyWidget');
+        if (placeholder && cal) {
+          placeholder.classList.add('hidden');
+          cal.style.opacity = '1';
+        }
+      }
+    });
+
+    const widget = document.getElementById('calendlyWidget');
+
+    function applyIframeScrollFix() {
+      const iframe = widget ? widget.querySelector('iframe') : null;
+      if (!iframe) {
+        setTimeout(applyIframeScrollFix, 300);
+        return;
+      }
+
+      iframe.style.pointerEvents = 'none';
+
+      widget.addEventListener('touchstart', () => {
+        iframe.style.pointerEvents = 'auto';
+      }, { passive: true });
+
+      document.addEventListener('touchstart', (e) => {
+        if (!widget.contains(e.target)) {
+          iframe.style.pointerEvents = 'none';
+        }
+      }, { passive: true });
+    }
+
+    applyIframeScrollFix();
+  </script>
 
 </body>
 </html>
