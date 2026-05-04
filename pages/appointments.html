@@ -101,11 +101,20 @@
       </div>
 
       <!-- Real Calendly widget -->
-      <div class="calendly-inline-widget"
-        id="calendlyWidget"
-        data-url="https://calendly.com/thao-tmkanalytics/30min"
-        style="min-width:320px; height:720px; opacity:0; transition: opacity 0.5s ease;">
-      </div>
+<div style="position: relative;">
+  <div id="iframeOverlay" style="
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 10;
+    background: transparent;
+  "></div>
+  <div class="calendly-inline-widget"
+    id="calendlyWidget"
+    data-url="https://calendly.com/thao-tmkanalytics/30min"
+    style="min-width:320px; height:720px; opacity:0; transition: opacity 0.5s ease;">
+  </div>
+</div>
 
     </div>
   </div>
@@ -184,42 +193,25 @@
 
    function applyIframeScrollFix() {
   const iframe = widget ? widget.querySelector('iframe') : null;
-  if (!iframe) {
+  const overlay = document.getElementById('iframeOverlay');
+
+  if (!iframe || !overlay) {
     setTimeout(applyIframeScrollFix, 300);
     return;
   }
 
-  iframe.style.pointerEvents = 'none';
+  // Overlay blocks all touches by default - page scrolls freely
+  overlay.style.display = 'block';
 
-  // Track if user is scrolling the page
-  let pageScrolling = false;
-  let scrollTimer;
-
-  window.addEventListener('touchstart', (e) => {
-    if (!widget.contains(e.target)) {
-      // Touch is outside widget - keep iframe disabled
-      iframe.style.pointerEvents = 'none';
-    }
+  // When user taps the overlay directly, hide it to let Calendly receive input
+  overlay.addEventListener('touchend', () => {
+    overlay.style.display = 'none';
   }, { passive: true });
 
-  window.addEventListener('touchmove', () => {
-    pageScrolling = true;
-    iframe.style.pointerEvents = 'none';
-    clearTimeout(scrollTimer);
-    scrollTimer = setTimeout(() => {
-      pageScrolling = false;
-    }, 100);
-  }, { passive: true });
-
-  widget.addEventListener('touchstart', (e) => {
-    if (!pageScrolling) {
-      iframe.style.pointerEvents = 'auto';
-    }
-  }, { passive: true });
-
+  // When user touches anywhere outside widget, restore overlay
   document.addEventListener('touchstart', (e) => {
     if (!widget.contains(e.target)) {
-      iframe.style.pointerEvents = 'none';
+      overlay.style.display = 'block';
     }
   }, { passive: true });
 }
