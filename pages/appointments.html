@@ -42,15 +42,73 @@
     </div>
   </section>
 
-  <!-- CALENDLY EMBED -->
-  <section id="calendly-section">
-    <div class="container">
-      <div class="calendly-inline-widget"
-        data-url="https://calendly.com/thao-tmkanalytics/30min"
-        style="min-width:320px; height:700px;">
+ <!-- CALENDLY EMBED -->
+<section id="calendly-section">
+  <div class="container">
+    <div class="calendly-wrap">
+
+      <!-- Placeholder shown while Calendly loads -->
+      <div class="calendly-placeholder" id="calendlyPlaceholder">
+        <div class="cal-blur">
+          <div class="cal-left">
+            <div class="cal-title-bar"></div>
+            <div class="cal-subtitle-bar"></div>
+            <div class="cal-desc-bar"></div>
+            <div class="cal-desc-bar short"></div>
+          </div>
+          <div class="cal-right">
+            <div class="cal-month-bar"></div>
+            <div class="cal-days-row">
+              <span>SUN</span><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span>
+            </div>
+            <div class="cal-grid">
+              <div class="cal-day empty"></div>
+              <div class="cal-day empty"></div>
+              <div class="cal-day empty"></div>
+              <div class="cal-day active"></div>
+              <div class="cal-day active"></div>
+              <div class="cal-day active"></div>
+              <div class="cal-day"></div>
+              <div class="cal-day active"></div>
+              <div class="cal-day active"></div>
+              <div class="cal-day active"></div>
+              <div class="cal-day active"></div>
+              <div class="cal-day active"></div>
+              <div class="cal-day active"></div>
+              <div class="cal-day"></div>
+              <div class="cal-day active"></div>
+              <div class="cal-day active"></div>
+              <div class="cal-day active"></div>
+              <div class="cal-day active"></div>
+              <div class="cal-day active"></div>
+              <div class="cal-day active"></div>
+              <div class="cal-day"></div>
+              <div class="cal-day active"></div>
+              <div class="cal-day active"></div>
+              <div class="cal-day active"></div>
+              <div class="cal-day active"></div>
+              <div class="cal-day active"></div>
+              <div class="cal-day active"></div>
+              <div class="cal-day"></div>
+            </div>
+          </div>
+        </div>
+        <div class="cal-loader">
+          <div class="cal-spinner"></div>
+          <p>Loading calendar...</p>
+        </div>
       </div>
+
+      <!-- Real Calendly widget -->
+      <div class="calendly-inline-widget"
+        id="calendlyWidget"
+        data-url="https://calendly.com/thao-tmkanalytics/30min"
+        style="min-width:320px; height:700px; opacity:0; transition: opacity 0.5s ease;">
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- WHAT TO EXPECT -->
   <section id="what-to-expect">
