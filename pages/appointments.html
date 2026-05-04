@@ -25,13 +25,30 @@
   window.addEventListener('message', function(e) {
     if (isCalendlyEvent(e) && e.data.event === 'calendly.event_type_viewed') {
       const placeholder = document.getElementById('calendlyPlaceholder');
-      const widget = document.getElementById('calendlyWidget');
-      if (placeholder && widget) {
+      const cal = document.getElementById('calendlyWidget');
+      if (placeholder && cal) {
         placeholder.classList.add('hidden');
-        widget.style.opacity = '1';
+        cal.style.opacity = '1';
       }
     }
   });
+
+  const widget = document.getElementById('calendlyWidget');
+  const iframe = widget ? widget.querySelector('iframe') : null;
+
+  if (iframe) {
+    iframe.style.pointerEvents = 'none';
+
+    widget.addEventListener('touchstart', () => {
+      iframe.style.pointerEvents = 'auto';
+    }, { passive: true });
+
+    document.addEventListener('touchstart', (e) => {
+      if (!widget.contains(e.target)) {
+        iframe.style.pointerEvents = 'none';
+      }
+    }, { passive: true });
+  }
 </script>
 
 <body>
