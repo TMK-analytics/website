@@ -14,6 +14,20 @@
   <!-- Calendly CSS -->
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
 </head>
+
+<script>
+  window.addEventListener('message', function(e) {
+    if (e.origin && e.origin.includes('calendly.com')) {
+      const placeholder = document.getElementById('calendlyPlaceholder');
+      const widget = document.getElementById('calendlyWidget');
+      if (placeholder && widget) {
+        placeholder.classList.add('hidden');
+        widget.style.opacity = '1';
+      }
+    }
+  });
+</script>
+
 <body>
 
   <nav>
