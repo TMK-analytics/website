@@ -102,7 +102,7 @@
 
       <!-- Real Calendly widget -->
 <div style="position: relative;">
-  <div id="iframeOverlay" style="
+ <div id="iframeOverlay" style="
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
@@ -200,7 +200,9 @@
     return;
   }
 
+  if ('ontouchstart' in window) {
   overlay.style.pointerEvents = 'auto';
+}
 
   let touchStartY = 0;
   let touchStartX = 0;
