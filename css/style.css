@@ -893,14 +893,14 @@ section {
 ======================== */
 .calendly-wrap {
   position: relative;
-  min-height: 660px;
+  min-height: 720px;
 }
 
 .calendly-placeholder {
   position: absolute;
   top: 0; left: 0;
   width: 100%;
-  height: 660px;
+  height: 720px;
   border-radius: var(--border-radius);
   overflow: hidden;
   transition: opacity 0.5s ease;
