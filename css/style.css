@@ -1148,6 +1148,8 @@ section {
   color: var(--accent);
   flex-shrink: 0;
   margin-top: 2px;
+  vertical-align: middle;
+  margin-left: 0.4rem;
 }
 
 .card-icon-text {
