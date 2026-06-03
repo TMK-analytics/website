@@ -1099,7 +1099,7 @@ section {
   gap: 1px;
 }
 
-.icon-sublabel {
+.workflow-icon .icon-sublabel {
   font-size: 0.85rem;
   color: #ffffff;
   line-height: 1;
