@@ -579,7 +579,7 @@ section {
 
 .pkg-note {
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   margin: 0 0 16px;
 }
 
