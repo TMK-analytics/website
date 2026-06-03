@@ -515,7 +515,7 @@ section {
 .pkg-name {
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--accent);
   margin: 0 0 4px;
 }
 
