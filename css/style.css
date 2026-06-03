@@ -204,15 +204,11 @@ section {
 }
 
   .flip-card {
-  aspect-ratio: unset;
-  min-height: 180px;
   height: auto;
 }
 
-.flip-front,
-.flip-back {
+.flip-front {
   position: relative;
-  min-height: 180px;
   height: auto;
 }
 }
@@ -301,44 +297,27 @@ section {
 
 .flip-card {
   width: 100%;
-  aspect-ratio: 2.8 / 1;
-  perspective: 1200px;
-  cursor: pointer;
+  height: auto;
 }
 
 .flip-inner {
   width: 100%;
-  height: 100%;
+  height: auto;
   position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
 }
 
-.flip-card.flipped .flip-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-front,
-.flip-back {
-  position: absolute;
+.flip-front {
+  position: relative;
   width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
   background: #f5f0e8;
   border: 1px solid #555;
   box-sizing: border-box;
   padding: 28px 32px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   overflow: hidden;
   border-radius: var(--border-radius);
-}
-
-.flip-back {
-  transform: rotateY(180deg);
-  align-items: center;
-  justify-content: center;
 }
 
 .card-title {
@@ -347,11 +326,12 @@ section {
   font-weight: 700;
   color: #111;
   margin: 0 0 10px;
+  text-align: center;
 }
 
 .card-text {
   font-family: var(--font-main);
-  font-size: 0.9rem;
+  font-size: 1.8rem;
   color: #333;
   margin: 0;
   line-height: 1.6;
@@ -1066,7 +1046,7 @@ section {
 ======================== */
 .card-workflow {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   flex-wrap: wrap;
   gap: 6px;
@@ -1089,8 +1069,8 @@ section {
 }
 
 .workflow-icon {
-  width: 80px;
-  height: 80px;
+  width: 160px;
+  height: 160px;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -1098,13 +1078,13 @@ section {
   align-items: center;
   justify-content: center;
   color: var(--accent);
-  font-size: 2.2rem;
+  font-size: 4.4rem;
   position: relative;
 }
 
 .workflow-icon.consult-icon {
-  width: 104px;
-  height: 80px;
+  width: 208px;
+  height: 160px;
   color: var(--text-secondary);
 }
 
@@ -1120,14 +1100,14 @@ section {
 
 .icon-sublabel {
   font-size: 0.85rem;
-  color: var(--accent);
+  color: #ffffff;
   line-height: 1;
 }
 
 .workflow-arrow {
   color: var(--text-muted);
   font-size: 0.7rem;
-  padding-bottom: 16px;
+  padding-top: 74px;
 }
 
 .card-divider {
