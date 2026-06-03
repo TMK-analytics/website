@@ -1081,16 +1081,16 @@ section {
 }
 
 .workflow-step span {
-  font-size: 0.65rem;
-  color: var(--text-secondary);
+  font-size: 1.1rem;
+  color: #111;
   text-align: center;
-  max-width: 60px;
+  max-width: 110px;
   line-height: 1.2;
 }
 
 .workflow-icon {
-  width: 40px;
-  height: 40px;
+  width: 80px;
+  height: 80px;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -1098,14 +1098,19 @@ section {
   align-items: center;
   justify-content: center;
   color: var(--accent);
-  font-size: 1.1rem;
+  font-size: 2.2rem;
   position: relative;
 }
 
 .workflow-icon.consult-icon {
-  width: 52px;
-  height: 40px;
+  width: 104px;
+  height: 80px;
   color: var(--text-secondary);
+}
+
+.workflow-icon.consult-icon svg {
+  width: 90%;
+  height: 90%;
 }
 
 .workflow-icon.infographic-icon {
@@ -1114,7 +1119,7 @@ section {
 }
 
 .icon-sublabel {
-  font-size: 0.45rem;
+  font-size: 0.85rem;
   color: var(--accent);
   line-height: 1;
 }
