@@ -521,7 +521,7 @@ section {
 
 .pkg-tagline {
   font-size: 0.85rem;
-  color: var(--text-secondary);
+  color: var(--text-primary);
   margin: 0;
 }
 
@@ -579,7 +579,7 @@ section {
 
 .pkg-note {
   font-size: 0.8rem;
-  color: var(--text-secondary);
+  color: var(--text-primary);
   margin: 0 0 16px;
 }
 
