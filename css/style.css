@@ -322,7 +322,7 @@ section {
 
 .card-title {
   font-family: var(--font-main);
-  font-size: 1.15rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: #111;
   margin: 0 0 10px;
@@ -331,7 +331,7 @@ section {
 
 .card-text {
   font-family: var(--font-main);
-  font-size: 1.8rem;
+  font-size: 1.15rem;
   color: #333;
   margin: 0;
   line-height: 1.6;
@@ -1062,6 +1062,7 @@ section {
 
 .workflow-step span {
   font-size: 1.1rem;
+  font-weight: 700;
   color: #111;
   text-align: center;
   max-width: 110px;
