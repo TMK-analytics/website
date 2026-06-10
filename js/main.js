@@ -137,3 +137,58 @@ if (helixCanvas) {
   drawHelix();
 }
 
+// ========================
+// TOOL BADGE TOOLTIPS
+// ========================
+const toolBadges = document.querySelectorAll('.tool-badge[data-description]');
+
+if (toolBadges.length) {
+  const tooltipEl = document.createElement('div');
+  tooltipEl.className = 'tool-tooltip';
+  document.body.appendChild(tooltipEl);
+
+  let activeBadge = null;
+
+  function showTooltip(badge) {
+    tooltipEl.textContent = badge.dataset.description;
+    tooltipEl.classList.add('visible');
+    activeBadge = badge;
+
+    const rect = badge.getBoundingClientRect();
+    const tipWidth = 260;
+
+    let left = rect.left;
+    if (left + tipWidth > window.innerWidth - 8) left = window.innerWidth - tipWidth - 8;
+    if (left < 8) left = 8;
+    tooltipEl.style.left = left + 'px';
+    tooltipEl.style.top = (rect.bottom + 8) + 'px';
+  }
+
+  function hideTooltip() {
+    tooltipEl.classList.remove('visible');
+    activeBadge = null;
+  }
+
+  toolBadges.forEach(badge => {
+    // Desktop: show on hover, hide on leave
+    badge.addEventListener('pointerenter', (e) => {
+      if (e.pointerType === 'mouse') showTooltip(badge);
+    });
+    badge.addEventListener('pointerleave', (e) => {
+      if (e.pointerType === 'mouse') hideTooltip();
+    });
+
+    // Touch: tap to toggle
+    badge.addEventListener('click', (e) => {
+      if (e.pointerType !== 'mouse') {
+        e.stopPropagation();
+        activeBadge === badge ? hideTooltip() : showTooltip(badge);
+      }
+    });
+  });
+
+  // Dismiss on tap outside (touch)
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.tool-badge')) hideTooltip();
+  });
+}

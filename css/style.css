@@ -675,17 +675,40 @@ section {
 
 .tool-badge {
   background-color: var(--bg-card);
-  border: 1px solid var(--border);
+  border: 1px solid var(--accent);
   border-radius: var(--border-radius);
   padding: 8px 20px;
   font-size: 0.9rem;
   color: var(--text-secondary);
-  transition: border-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+  user-select: none;
 }
 
 .tool-badge:hover {
-  border-color: var(--accent);
+  background-color: rgba(26, 111, 212, 0.1);
   color: var(--accent);
+}
+
+.tool-tooltip {
+  position: fixed;
+  background: var(--bg-card);
+  border: 1px solid var(--accent);
+  border-radius: var(--border-radius);
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  max-width: 260px;
+  line-height: 1.5;
+  z-index: 9000;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.tool-tooltip.visible {
+  opacity: 1;
 }
 
 /* Responsive */
