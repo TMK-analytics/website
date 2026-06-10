@@ -171,24 +171,17 @@ if (toolBadges.length) {
 
   toolBadges.forEach(badge => {
     // Desktop: show on hover, hide on leave
-    badge.addEventListener('pointerenter', (e) => {
-      if (e.pointerType === 'mouse') showTooltip(badge);
-    });
-    badge.addEventListener('pointerleave', (e) => {
-      if (e.pointerType === 'mouse') hideTooltip();
-    });
+    badge.addEventListener('mouseenter', () => showTooltip(badge));
+    badge.addEventListener('mouseleave', hideTooltip);
 
-    // Touch: tap to toggle
-    badge.addEventListener('click', (e) => {
-      if (e.pointerType !== 'mouse') {
-        e.stopPropagation();
-        activeBadge === badge ? hideTooltip() : showTooltip(badge);
-      }
+    // Touch: tap to toggle (preventDefault stops synthetic mouse events from also firing)
+    badge.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      activeBadge === badge ? hideTooltip() : showTooltip(badge);
     });
   });
 
-  // Dismiss on tap outside (touch)
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.tool-badge')) hideTooltip();
-  });
+  // Dismiss when tapping anywhere outside a badge (touch)
+  document.addEventListener('touchend', () => hideTooltip());
 }
